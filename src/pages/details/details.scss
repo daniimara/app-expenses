@@ -1,3 +1,46 @@
 page-details {
+    ion-card {
+        border-radius: 0px !important;
+        background-color: map-get($colors, 'light') !important;
+    }
+
+    ion-content {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    ion-card-content {
+        float: left;
+        height: auto;
+        width: 70%;
+        padding: 0px !important;
+    }
+
+    ion-card-title {
+        margin: 0 !important;
+        padding: 1rem 2rem 1rem 2rem !important;
+        font-weight: 600;
+        color: map-get($colors, 'white');
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        background-color: map-get($colors, 'primary');
+        background-image: linear-gradient(to right, map-get($colors, 'primary-light'), map-get($colors, 'primary') 50%);
+    }
+
+    ion-card-content p {
+        padding: 13px 16px;
+    }
+
+    img {
+        height: auto;
+        min-height: 100px;
+        max-height: 200px;
+        width: 100%;
+        min-width: 100px;
+        max-width: 200px;
+        border-left: 1px solid map-get($colors, 'border-title');
+    }
 
 }

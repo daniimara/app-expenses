@@ -20,14 +20,16 @@ export class ExpenseProvider {
           name: 'Gasolina',
           type: '1',
           value: 250.00,
-          image: 'https://icon-icons.com/icons2/865/PNG/512/Citycons_fuel_icon-icons.com_67929.png'
+          icon: 'https://icon-icons.com/icons2/865/PNG/512/Citycons_fuel_icon-icons.com_67929.png',
+          image: 'http://4.bp.blogspot.com/-Q5slMZkRdlM/UfkQGqJOEhI/AAAAAAAADD0/psTdXofY8YE/s1600/$RNRWO4S.jpg'
         },
         {
           _id: '2',
           name: 'Itens de Limpeza',
           type: '2',
           value: 100.00,
-          image: 'https://cdn.pixabay.com/photo/2017/03/29/04/09/shopping-icon-2184065_1280.png'
+          icon: 'https://cdn.pixabay.com/photo/2015/12/23/01/14/edit-1105049_1280.png',
+          image: 'http://1.bp.blogspot.com/-7MwcmqUzJ88/UYZsF5DnN0I/AAAAAAAAXWs/OSn90AwKe_o/s1600/Cupom+Fiscal.jpg'
         }
       ]
     };

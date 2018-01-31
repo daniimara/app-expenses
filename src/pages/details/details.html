@@ -14,15 +14,14 @@
 
 <ion-content>
   <ion-card>
-
-    <img src="{{expense.image}}" />
-
     <ion-card-content>
       <ion-card-title>
-      {{expense.name}} - {{expense.type}}
+      {{expense.name}}
       </ion-card-title>
+      <p [innerHtml]="expense.type"></p>
       <p [innerHtml]="expense.value"></p>
     </ion-card-content>
+    <img src="{{expense.image}}" (click)="openImage(expense.image, expense.name)" />
   </ion-card>
 
 </ion-content>

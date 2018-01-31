@@ -8,16 +8,16 @@ import { ExpenseProvider } from '../../providers/expense-service/expense-service
 })
 export class HomePage {
 
-  public obj: any;
-  public result: any;
+  private obj: any;
+  private result: any;
 
   descending: boolean = false;
   order: number;
   column: string = 'name';
 
   constructor(
-    public navCtrl: NavController,
-    public expenseService: ExpenseProvider
+    private navCtrl: NavController,
+    private expenseService: ExpenseProvider
   ) {
     this.getAll();
   }

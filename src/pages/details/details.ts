@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { ExpenseProvider } from "../../providers/expense-service/expense-service";
 import { Expense } from "../../models/expense";
 
@@ -16,13 +17,15 @@ import { Expense } from "../../models/expense";
   templateUrl: "details.html"
 })
 export class DetailsPage {
-  public _id;
-  public expense: Expense;
+
+  private _id;
+  private expense: Expense;
 
   constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public expenseService: ExpenseProvider
+    private navCtrl: NavController,
+    private navParams: NavParams,
+    private photoViewer: PhotoViewer,
+    private expenseService: ExpenseProvider
   ) {
     this._id = navParams.get("_id");
     this.expense = new Expense();
@@ -31,6 +34,10 @@ export class DetailsPage {
     .then(data => {
       this.expense = data;
     });
+  }
+
+  openImage(url: string, title: string) {
+    this.photoViewer.show(url, title);
   }
 
   ionViewDidLoad() {
