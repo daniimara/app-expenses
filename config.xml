@@ -84,8 +84,9 @@
     <plugin name="com-sarriaroman-photoviewer" spec="^1.1.11" />
     <plugin name="cordova-plugin-globalization" spec="^1.0.9" />
     <allow-navigation href="http://9.80.208.220:8100" />
-    <engine name="ios" spec="4.5.4" />
-    <engine name="browser" spec="5.0.3" />
     <allow-navigation href="http://9.80.220.224:8100" />
     <allow-navigation href="http://192.168.25.228:8100" />
+    <engine name="ios" spec="4.5.4" />
+    <engine name="browser" spec="5.0.3" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
 </widget>

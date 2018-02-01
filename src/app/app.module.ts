@@ -6,13 +6,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { Globalization } from '@ionic-native/globalization';
 
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpModule } from '@angular/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
 import { ExpenseProvider } from '../providers/expense-service/expense-service';
 import { FormatterNumber } from '../utils/formatter';
 
-import { HttpModule } from '@angular/http';
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -21,7 +28,15 @@ import { HttpModule } from '@angular/http';
   ],
   imports: [
     HttpModule,
+    HttpClientModule,
     BrowserModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
