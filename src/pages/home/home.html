@@ -2,7 +2,7 @@
     <ion-navbar color="primary">
       <ion-title>
         <div class="header-title">
-            Despesas
+          {{ 'EXPENSE.TITLE' | translate }}
         </div>
         <!--<img class="logo" src="assets/imgs/logo.png" alt="Despesas">-->
       </ion-title>
@@ -11,10 +11,18 @@
 
 <ion-content class="home">
 
+    <div class="empty-list" *ngIf="expenses.length == 0">
+        <div class="empty">
+          <p>
+              {{ 'ERROR_MESSAGES.EMPTYLIST' | translate }}
+          </p>
+        </div>
+    </div>
+
     <ion-list>
         <ion-item
           (click)="getDetail(expense._id)"
-          *ngFor="let expense of result"
+          *ngFor="let expense of expenses"
         >
          <ion-avatar item-left *ngIf="expense.icon != null">
            <img src="{{expense.icon}}">

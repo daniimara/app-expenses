@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 import { ExpenseProvider } from '../../providers/expense-service/expense-service';
 
 @Component({
@@ -9,10 +10,11 @@ import { ExpenseProvider } from '../../providers/expense-service/expense-service
 export class HomePage {
 
   private obj: any;
-  private result: any;
+  private expenses: any = [];
 
   constructor(
     private navCtrl: NavController,
+    private translate: TranslateService,
     private expenseService: ExpenseProvider
   ) {
     this.getAll();
@@ -22,7 +24,7 @@ export class HomePage {
     this.expenseService.load()
       .then(data => {
         this.obj = data;
-        this.result = this.obj.docs;
+        this.expenses = this.obj.docs;
       });
   }
 

@@ -1,0 +1,16 @@
+{
+  "BACK_BUTTON_TEXT": "Back",
+  "TABS": {
+    "EXPENSES": "Expense",
+    "PROFILE": "Profile"
+  },
+  "EXPENSE": {
+    "TITLE": "Expenses"
+  },
+  "PROMPT": {
+    "SEARCH": "Search"
+  },
+  "ERROR_MESSAGES": {
+    "EMPTYLIST": "No records found"
+  }
+}

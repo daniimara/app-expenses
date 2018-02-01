@@ -31,10 +31,12 @@ export class MyApp {
 
       this.globalization.getLocaleName()
       .then((res) => {
-        //console.log('getLocaleName: ', JSON.stringify(res.value));
-        this.translate.setDefaultLang(res.value);
-        this.translate.use(res.value);
-  
+        let userLang = res.value.split("-")[0];
+        userLang = /(pt|en)/gi.test(userLang) ? userLang : "en";
+        
+        this.translate.setDefaultLang(userLang);
+        this.translate.use(userLang);
+        
         this.translate.get('BACK_BUTTON_TEXT')
         .subscribe(backText => {
           this.config.set('ios', 'backButtonText', backText);

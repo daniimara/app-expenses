@@ -1,0 +1,16 @@
+{
+  "BACK_BUTTON_TEXT": "Voltar",
+  "TABS": {
+    "EXPENSES": "Despesas",
+    "PROFILE": "Perfil"
+  },
+  "EXPENSE": {
+    "TITLE": "Despesas"
+  },
+  "PROMPT": {
+    "SEARCH": "Pesquisar"
+  },
+  "ERROR_MESSAGES": {
+    "EMPTYLIST": "Nenhum registro encontrado"
+  }
+}

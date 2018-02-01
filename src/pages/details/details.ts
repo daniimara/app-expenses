@@ -1,25 +1,21 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { PhotoViewer } from '@ionic-native/photo-viewer';
+import { TranslateService } from '@ngx-translate/core';
+
 import { ExpenseProvider } from "../../providers/expense-service/expense-service";
 import { Expense, Type } from "../../models/expense";
 import { FormatterNumber } from '../../utils/formatter';
-
-/**
- * Generated class for the DetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
   selector: "page-details",
   templateUrl: "details.html"
 })
+
 export class DetailsPage {
 
-  private expenses: Expense[];
+  private expenses: Expense[] = [];
   private type: Type;
 
   private descending: boolean = false;
@@ -30,11 +26,11 @@ export class DetailsPage {
     private navCtrl: NavController,
     private navParams: NavParams,
     private photoViewer: PhotoViewer,
+    private translate: TranslateService,
     private formatterNumber: FormatterNumber,
     private expenseService: ExpenseProvider
   ) {
 
-    this.expenses = [];
     this.type = new Type();
     this.type._id = navParams.get("_id");
 
