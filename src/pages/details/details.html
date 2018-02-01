@@ -45,7 +45,7 @@
                   <ion-card-title>
                   {{expense.name}}
                   </ion-card-title>
-                  <p [innerHtml]="formatterNumber.getNumberFormatted(expense.value)"></p>
+                  <p currency [innerHtml]="expense.value"></p>
                 </ion-card-content>
               </div>
               <div class="divider"></div>
