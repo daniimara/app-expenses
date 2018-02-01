@@ -1,7 +1,7 @@
 page-details {
 
     ion-card {
-        background-color: map-get($colors, 'light') !important;
+        background-color: map-get($colors, 'white') !important;
     }
 
     ion-card-content {
@@ -10,6 +10,14 @@ page-details {
 
     .col {
         padding: 0px !important;
+    }
+
+    .sort-icon {
+        font-size: 3em;
+        min-width: 10px;
+        min-height: 44px;
+        padding-right: 8px;
+        background-color: rgba(0, 0, 0, 0.2);
     }
 
     ion-card-title {
@@ -31,6 +39,22 @@ page-details {
 
     .divider{
         border-left: 1px solid map-get($colors, 'border-title');
+    }
+
+    .item {
+        background-color: map-get($colors, 'light');
+    }
+
+    .list-ios > .item-block {
+        &:first-child{
+            border-top: none;
+        }
+        &:last-child{
+            border-bottom: none;
+        }
+    }
+    .list-ios > .item-block > .item-inner {
+        border-bottom: none;
     }
 
 }

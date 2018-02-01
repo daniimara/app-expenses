@@ -2,3 +2,21 @@
   font-size: 1.5rem;
   color: map-get($colors, 'white');
 }
+
+.ion-page {
+  .content {
+    background-color: map-get($colors, 'light');
+  }
+}
+
+.empty-list {
+  height: 100%;
+  text-align: center;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+
+  .empty {
+      width: 100%;
+  }
+}

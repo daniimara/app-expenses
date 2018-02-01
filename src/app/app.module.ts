@@ -9,17 +9,14 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
 import { ExpenseProvider } from '../providers/expense-service/expense-service';
+import { FormatterNumber } from '../utils/formatter';
 
 import { HttpModule } from '@angular/http';
-import { SearchPipe } from '../pipes/search/search';
-import { SortPipe } from '../pipes/sort/sort';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    SearchPipe,
-    SortPipe
+    HomePage
   ],
   imports: [
     HttpModule,
@@ -36,7 +33,8 @@ import { SortPipe } from '../pipes/sort/sort';
     PhotoViewer,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ExpenseProvider
+    ExpenseProvider,
+    FormatterNumber
   ]
 })
 export class AppModule {}

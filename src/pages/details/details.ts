@@ -2,7 +2,8 @@ import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { ExpenseProvider } from "../../providers/expense-service/expense-service";
-import { Expense } from "../../models/expense";
+import { Expense, Type } from "../../models/expense";
+import { FormatterNumber } from '../../utils/formatter';
 
 /**
  * Generated class for the DetailsPage page.
@@ -18,29 +19,45 @@ import { Expense } from "../../models/expense";
 })
 export class DetailsPage {
 
-  private _id;
-  private expense: Expense;
+  private expenses: Expense[];
+  private type: Type;
+
+  private descending: boolean = false;
+  private order: number;
+  private column: string = 'name';
 
   constructor(
     private navCtrl: NavController,
     private navParams: NavParams,
     private photoViewer: PhotoViewer,
+    private formatterNumber: FormatterNumber,
     private expenseService: ExpenseProvider
   ) {
-    this._id = navParams.get("_id");
-    this.expense = new Expense();
 
-    this.expenseService.getExpenseById(this._id)
+    this.expenses = [];
+    this.type = new Type();
+    this.type._id = navParams.get("_id");
+
+    this.expenseService.getTypeById(this.type._id)
     .then(data => {
-      this.expense = data;
+      this.type = data;
+      return this.expenseService.getExpenseByTypeId(this.type._id);
+      }).then(data => {
+        this.expenses = <Expense[]>data;
     });
+  }
+
+  ionViewDidLoad() {
+    console.log("ionViewDidLoad DetailsPage");
   }
 
   openImage(url: string, title: string) {
     this.photoViewer.show(url, title);
   }
 
-  ionViewDidLoad() {
-    console.log("ionViewDidLoad DetailsPage");
+  sort(){
+    this.descending = !this.descending;
+    this.order = this.descending ? 1 : -1;
   }
+
 }

@@ -10,11 +10,12 @@
   </ion-header>
 
 <ion-content class="home">
-    <ion-searchbar [(ngModel)]="terms" placeholder="Pesquisar"></ion-searchbar>
-    <button ion-button type="button" (click)="sort()">Ordenar</button>
 
     <ion-list>
-        <ion-item (click)="getDetail(expense._id)"   *ngFor="let expense of result | search : terms | sort: {property: column, order: order}">
+        <ion-item
+          (click)="getDetail(expense._id)"
+          *ngFor="let expense of result"
+        >
          <ion-avatar item-left *ngIf="expense.icon != null">
            <img src="{{expense.icon}}">
          </ion-avatar>

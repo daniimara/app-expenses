@@ -1,10 +1,12 @@
 export class Expense {
-    
-    constructor(
-        public _id?: string,
-        public name?: string,
-        public type?: string,
-        public value?: number,
-        public icon?: string,
-        public image?: string) { }
+    _id?: string;
+    name?: string;
+    value?: number;
+    image?: string;
+}
+
+export class Type {
+    _id?: string;
+    name?: string;
+    icon?: string;
 }

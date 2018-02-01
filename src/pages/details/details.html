@@ -9,29 +9,52 @@
   <ion-navbar color="primary">
     <ion-title>
       <div class="header-title">
-          {{expense.name}}
+          {{type.name}}
       </div>
       <!--<img class="logo" src="assets/imgs/logo.png" alt="Despesas">-->
     </ion-title>
   </ion-navbar>
+  <div class="row">
+    <div class="col">
+      <ion-searchbar [(ngModel)]="terms" placeholder="Pesquisar"></ion-searchbar>
+    </div>
+    <div class="col-1">
+      <ion-icon class="sort-icon" ios="ios-reorder" md="md-reorder" (click)="sort()"></ion-icon>
+    </div>
+  </div>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-      <div class="row">
-          <div class="col">
-            <ion-card-content>
-              <ion-card-title>
-              {{expense.name}}
-              </ion-card-title>
-              <p [innerHtml]="expense.type"></p>
-              <p [innerHtml]="expense.value"></p>
-            </ion-card-content>
+
+    <div class="empty-list" *ngIf="expenses.length == 0">
+        <div class="empty">
+          <p>
+              {{ 'Nenhum registro encontrado' }}
+          </p>
+        </div>
+    </div>
+
+    <ion-list>
+        <ion-item
+          *ngFor="let expense of expenses | search : terms | sort: {property: column, order: order}"
+        >
+      <ion-card>
+          <div class="row">
+              <div class="col">
+                <ion-card-content>
+                  <ion-card-title>
+                  {{expense.name}}
+                  </ion-card-title>
+                  <p [innerHtml]="formatterNumber.getNumberFormatted(expense.value)"></p>
+                </ion-card-content>
+              </div>
+              <div class="divider"></div>
+              <div class="col">
+                <img src="{{expense.image}}" (click)="openImage(expense.image, expense.name)" />
+              </div>
           </div>
-          <div class="divider"></div>
-          <div class="col">
-            <img src="{{expense.image}}" (click)="openImage(expense.image, expense.name)" />
-          </div>
-      </div>
-  </ion-card>
+      </ion-card>
+    </ion-item> 
+  </ion-list>
+
 </ion-content>
